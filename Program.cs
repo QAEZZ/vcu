@@ -1,4 +1,5 @@
 ﻿using System;
+using VCU.Commands;
 
 namespace VCU
 {
@@ -6,19 +7,23 @@ namespace VCU
     {
         public static void Main(string[] args)
         {
-            if (args.Length > 0)
+            if (args.Length == 0)
             {
-                Console.WriteLine("arguments:");
+                ShowHelp();
+                return;
+            }
 
-                for (int i = 0; i < args.Length; i++)
-                {
-                    Console.WriteLine($"Argument: {args[i]}");
-                }
-            }
-            else
+            switch (args[0])
             {
-                Console.WriteLine("No arguments provided.");
+                case "init": Init.Execute(args); break;
+                case "teardown": Teardown.Execute(args); break;
+                default: ShowHelp(); break;
             }
+        }
+
+        private static void ShowHelp()
+        {
+            Console.WriteLine("Usage: vcu <command> [arguments]\n\nCommands:\n    help : this.\n    init : Initialize a branch");
         }
     }
 }
