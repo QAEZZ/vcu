@@ -6,9 +6,9 @@ namespace VCU.Commands
 {
     internal static class Init
     {
-        public static void Execute(string[] args)
+        internal static void Execute(string[] args)
         {
-            if (args.Length < 1)
+            if (args.Length < 2)
             {
                 Console.WriteLine("Error: Missing branch name for 'init' command.");
                 return;

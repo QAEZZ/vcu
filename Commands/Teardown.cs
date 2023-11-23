@@ -5,7 +5,7 @@ namespace VCU.Commands;
 
 internal static class Teardown
 {
-    public static void Execute(string[] args)
+    internal static void Execute(string[] args)
     {
         
         if (!Directory.Exists(".vcu")) {
