@@ -3,7 +3,7 @@ namespace VCU.Constants;
 
 internal static class ConfigConstants
 {
-    readonly internal static string configFilePath = "./.vcu/config.yaml";
+    internal const string configFilePath = "./.vcu/config.yaml";
     internal static string ConfigYamlContent(string initBranch)
     {
         return $@"
