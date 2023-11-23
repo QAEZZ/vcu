@@ -16,4 +16,12 @@ core:
 branches:
     - {initBranch}";
     }
+
+    internal readonly static string[] allowedConfigTreePaths = {
+        "core/allowForcePush",
+        "core/allowHttpRemote",
+        "core/pushEmptyDirectories",
+        "user/name",
+        "user/email"
+    };
 }

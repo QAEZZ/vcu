@@ -13,8 +13,15 @@ public static class Program
             return;
         }
 
+        if (args[0].ToLower() != "help" && args[0].ToLower() != "init" && !Directory.Exists(".vcu"))
+        {
+            Console.WriteLine("A VCU repository has not been initialized in the currect directory.\nYou can initialize one by running: vcu init main");
+            return;
+        }
+
         switch (args[0].ToLower())
         {
+            case "config": Config.Execute(args); break;
             case "init": Init.Execute(args); break;
             case "teardown": Teardown.Execute(args); break;
             case "remote": Remote.Execute(args); break;
