@@ -1,29 +1,29 @@
 ﻿using System;
 using VCU.Commands;
 
-namespace VCU
+namespace VCU;
+
+public static class Program
 {
-    public static class Program
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
+        if (args.Length == 0)
         {
-            if (args.Length == 0)
-            {
-                ShowHelp();
-                return;
-            }
-
-            switch (args[0])
-            {
-                case "init": Init.Execute(args); break;
-                case "teardown": Teardown.Execute(args); break;
-                default: ShowHelp(); break;
-            }
+            ShowHelp();
+            return;
         }
 
-        private static void ShowHelp()
+        switch (args[0].ToLower())
         {
-            Console.WriteLine("Usage: vcu <command> [arguments]\n\nCommands:\n    help : this.\n    init : Initialize a branch");
+            case "init": Init.Execute(args); break;
+            case "teardown": Teardown.Execute(args); break;
+            case "remote": Remote.Execute(args); break;
+            default: ShowHelp(); break;
         }
+    }
+
+    private static void ShowHelp()
+    {
+        Console.WriteLine("Usage: vcu <command> [arguments]\n\nCommands:\n    help : this.\n    init : Initialize a branch");
     }
 }

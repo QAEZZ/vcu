@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using VCU.Constants;
 
 namespace VCU.Commands
 {
@@ -15,9 +16,12 @@ namespace VCU.Commands
 
             string branch = args[1];
 
-            Directory.CreateDirectory(".vcu");
+            Directory.CreateDirectory("./.vcu");
+            Directory.CreateDirectory("./.vcu/remotes");
 
-            Console.WriteLine($"Initialized VCU repository.\nBranch: {branch}\nPath..: {Path.GetFullPath(".vcu")}");
+            File.WriteAllText(ConfigConstants.configFilePath, ConfigConstants.ConfigYamlContent(branch));
+
+            Console.WriteLine($"Initialized VCU repository.\nBranch: {branch}\n..Path: {Path.GetFullPath(".vcu")}");
         }
     }
 }
