@@ -17,6 +17,8 @@ namespace VCU.Commands
             string branch = args[1];
 
             Directory.CreateDirectory("./.vcu");
+            File.CreateText("./.vcuignore");
+            File.CreateText("./.vcu/commits.yaml");
             Directory.CreateDirectory("./.vcu/remotes");
 
             File.WriteAllText(ConfigConstants.configFilePath, ConfigConstants.ConfigYamlContent(branch));
